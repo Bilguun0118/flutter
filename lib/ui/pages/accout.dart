@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_f/ui/util/account_post.dart';
 import 'package:instagram_f/ui/util/account_tag.dart';
@@ -24,13 +25,64 @@ class UserAccount extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 //Profile picture
-                Container(
-                  height: 86,
-                  width: 86,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    shape: BoxShape.circle,
-                  ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 96,
+                      height: 96,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomLeft,
+                          end: Alignment.topRight,
+                          colors: <Color>[
+                            Color(0xffFBAA47),
+                            Color(0xffD91A46),
+                            Color(0xffA60F93),
+                          ],
+                          tileMode: TileMode.mirror,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Container(
+                          width: 86,
+                          height: 86,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 3,
+                            ),
+                            shape: BoxShape.circle,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(86 / 2),
+                            child: CachedNetworkImage(
+                              imageUrl:
+                                  "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                              placeholder: (context, url) =>
+                                  CircularProgressIndicator(),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    // SizedBox(
+                    //   width: 80,
+                    //   child: Text(
+                    //     names,
+                    //     overflow: TextOverflow.ellipsis,
+                    //     style: TextStyle(color: Colors.black),
+                    //     textAlign: TextAlign.center,
+                    //   ),
+                    // ),
+                  ],
                 ),
 
                 //Number of posts, followers, following
@@ -83,99 +135,77 @@ class UserAccount extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Jackie',
+                  'Jackie Chan',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5.0),
                   child: Text(
-                    'I create apps & video rgame',
+                    'Digital goodies designer @pixsellz',
                   ),
                 ),
                 Text(
-                  'm.youtube.com/jeckie/',
-                  style: TextStyle(color: Colors.blue),
+                  'Everytihng is designed.',
                 )
               ],
             ),
           ),
-
+          
+          SizedBox(height: 15),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Container(
-                      padding: EdgeInsets.all(5.0),
-                      child: Center(child: Text("Add tools")),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                  ),
+            child: Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Container(
+                padding: EdgeInsets.all(8.0),
+                child: Center(
+                    child: Text(
+                  "Edit Profile",
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                )),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(5),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Container(
-                      padding: EdgeInsets.all(5.0),
-                      child: Center(child: Text("Insights")),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Container(
-                      padding: EdgeInsets.all(5.0),
-                      child: Center(child: Text("Add shop")),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
 
           // Stories history
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
-            child: Row(children: [
-              BubbleStories(text: "Story 1"),
-              BubbleStories(text: "Story 2"),
-              BubbleStories(text: "Story 3"),
-              BubbleStories(text: "Story 4"),
-              BubbleStories(text: "Story 5"),
-            ]),
+            child: Container(
+              height: 100,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return BubbleStories(names: "Story 1");
+                },),
+            ),
           ),
 
           //Tavbar Icons
-          TabBar(
+          const TabBar(
             tabs: [
               Tab(
-                icon: Icon(Icons.grid_3x3_outlined),
+                icon: Icon(Icons.grid_3x3_outlined,
+                color: Colors.black,),
               ),
               Tab(
-                icon: Icon(Icons.video_call),
+                icon: Icon(Icons.video_call,
+                color: Colors.black),
               ),
               Tab(
-                icon: Icon(Icons.person),
+                icon: Icon(Icons.person,
+                color: Colors.black),
               ),
             ],
           ),
 
           //Post, Video and Tag
-          Expanded(
+          const Expanded(
               child: TabBarView(
             children: [
               AccountPost(),

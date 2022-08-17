@@ -23,13 +23,17 @@ class UserSearch extends StatelessWidget {
               Container(
                 child: Text(
                   "Search",
-                  style: TextStyle(color: Colors.grey[500]),
+                  style: TextStyle(
+                      color: Colors.grey[500],
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400),
                 ),
               )
             ]),
           ),
-        ),
+        ),  
       ),
+
       //Image grid
       body: ExploreGrid(),
     );

@@ -25,10 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _children = [
     UserHome(),
-    UserSearch(),
-    UserReels(),
-    UserShop(),
-    UserAccount(),
+    const UserSearch(),
+     UserReels(),
+    const UserShop(),
+    const UserAccount(),
   ];
 
   @override
@@ -40,11 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _navigateBottomNavBar,
         type: BottomNavigationBarType.fixed,
         items: [
-           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
-           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
-           BottomNavigationBarItem(icon: Icon(Icons.video_call), label: 'reels'),
-           BottomNavigationBarItem(icon: Icon(Icons.shop), label: 'shop'),
-           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'account'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
+          BottomNavigationBarItem(icon: Icon(Icons.video_call), label: 'reels'),
+          BottomNavigationBarItem(icon: Icon(Icons.shop), label: 'shop'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'account'),
         ],
       ),
       // bottomNavigationBar: GNav(

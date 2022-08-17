@@ -13,17 +13,17 @@ class UserShop extends StatelessWidget {
         title: ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: Container(
-            padding: EdgeInsets.all(8),
-            color: Colors.grey[300],
+            padding: const EdgeInsets.all(8),
+            color: const Color(0xffeaeaeb),
             child: Row(children: [
-              Icon(
+              const Icon(
                 Icons.search,
-                color: Colors.grey[500],
+                color: Color(0xff8b8b8f),
               ),
               Container(
-                child: Text(
+                child: const Text(
                   "Search",
-                  style: TextStyle(color: Colors.grey[500]),
+                  style: TextStyle(color: Color(0xff8b8b8f), fontSize: 16, fontWeight: FontWeight.w400),
                 ),
               )
             ]),

@@ -4,13 +4,12 @@ import 'package:instagram_f/ui/util/user_posts.dart';
 
 class UserHome extends StatelessWidget {
   // const UserHome({Key? key}) : super(key: key);
-  final List people = [
-    'mongol',
+  final List names = [
+    'tsastmaartiingerel',
     'johhny',
     'marrina',
     'margarite',
-    'obama',
-    'bataa'
+    'obama'
   ];
 
   @override
@@ -22,34 +21,46 @@ class UserHome extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              "instagragm",
+            const Text(
+              "instagram",
               style: TextStyle(color: Colors.black),
             ),
             Row(
-              children: [
-                Icon(Icons.add),
-                Padding(padding: const EdgeInsets.all(24.0),
-                  child: Icon(Icons.favorite),
+              children: const [
+                Icon(
+                  Icons.add,
+                  color: Colors.black,
                 ),
-                Icon(Icons.messenger),
+                Padding(
+                  padding: EdgeInsets.all(24.0),
+                  child: Icon(
+                    Icons.favorite,
+                    color: Colors.black,
+                  ),
+                ),
+                Icon(
+                  Icons.messenger,
+                  color: Colors.black,
+                ),
               ],
             )
           ],
         ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           //stories
           Container(
             height: 100,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: people.length,
+                itemCount: names.length,
                 itemBuilder: (context, index) {
-                  return BubbleStories(text: people[index]);
+                  return BubbleStories(names: names[index]);
                 }),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: Colors.white,
                 border: Border(
                     top: BorderSide(
@@ -66,9 +77,11 @@ class UserHome extends StatelessWidget {
           // Post
           Expanded(
             child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: names.length,
               itemBuilder: (context, index) {
                 return UserPosts(
-                  name: people[index],
+                  name: names[index],
                 );
               },
             ),
