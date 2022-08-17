@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_f/ui/util/bubble_stories.dart';
 import 'package:instagram_f/ui/util/user_posts.dart';
@@ -21,10 +22,13 @@ class UserHome extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "instagram",
-              style: TextStyle(color: Colors.black),
+            ClipRRect(
+              child: CachedNetworkImage(imageUrl: "https://www.pngitem.com/pimgs/m/132-1327993_instagram-logo-word-png-transparent-png.png", width: 150, height: 50,),
             ),
+            // const Text(
+            //   "instagram",
+            //   style: TextStyle(color: Colors.black),
+            // ),
             Row(
               children: const [
                 Icon(

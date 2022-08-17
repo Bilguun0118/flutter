@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const UserSearch(),
      UserReels(),
     const UserShop(),
-    const UserAccount(),
+    UserAccount(),
   ];
 
   @override

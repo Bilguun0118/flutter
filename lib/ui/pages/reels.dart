@@ -17,8 +17,9 @@ class UserReels extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        
         child: Container(
-          color: Color(0xffF2F2F2),
+          color: Colors.black,
           child: Stack(
             children: [
               //We need swiper for every content

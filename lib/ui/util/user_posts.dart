@@ -89,7 +89,7 @@ class UserPosts extends StatelessWidget {
                   ),
                 ],
               ),
-              Icon(Icons.menu)
+              Icon(Icons.more_vert)
             ],
           ),
         ),
@@ -121,7 +121,7 @@ class UserPosts extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Icon(Icons.favorite),
+                  Icon(Icons.favorite_outline),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Icon(Icons.chat_bubble_outline),
@@ -129,7 +129,7 @@ class UserPosts extends StatelessWidget {
                   Icon(Icons.share),
                 ],
               ),
-              Icon(Icons.bookmark),
+              Icon(Icons.bookmark_outline),
             ],
           ),
         ),

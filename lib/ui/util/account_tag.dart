@@ -21,6 +21,8 @@ Widget build(BuildContext context) {
 
   Widget masonryLayout(BuildContext context) {
     return GridView.builder(
+      // shrinkWrap: true,
+      // physics: const NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
       gridDelegate: SliverQuiltedGridDelegate(
         crossAxisCount: 3,

@@ -64,7 +64,7 @@ class _ContentScreenState extends State<ContentScreen> {
                 children: [
                   CircularProgressIndicator(),
                   SizedBox(height: 10),
-                  Text('Loading...', style: TextStyle(color: Colors.red),)
+                  Text('Loading...', style: TextStyle(color: Colors.black),)
                 ],
               ),
         if (_liked)

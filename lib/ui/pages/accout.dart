@@ -19,109 +19,131 @@ class UserAccount extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(
               left: 20.0,
-              top: 88.0,
+              top: 50.0,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            child: Column(
               children: [
-                //Profile picture
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      width: 96,
-                      height: 96,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        gradient: LinearGradient(
-                          begin: Alignment.bottomLeft,
-                          end: Alignment.topRight,
-                          colors: <Color>[
-                            Color(0xffFBAA47),
-                            Color(0xffD91A46),
-                            Color(0xffA60F93),
-                          ],
-                          tileMode: TileMode.mirror,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Container(
-                          width: 86,
-                          height: 86,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.white,
-                              width: 3,
-                            ),
-                            shape: BoxShape.circle,
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(86 / 2),
-                            child: CachedNetworkImage(
-                              imageUrl:
-                                  "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                              placeholder: (context, url) =>
-                                  CircularProgressIndicator(),
-                              fit: BoxFit.cover,
-                            ),
+                    Row(
+                      children: const [
+                        Text(
+                          "Jackie_Chan",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w800,
                           ),
                         ),
+                        Icon(Icons.keyboard_arrow_down_outlined)
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Container(
+                        width: 70,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                          Icon(Icons.add, size: 30,),
+                          Icon(Icons.menu, size: 30,),
+                        ]),
                       ),
                     ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    // SizedBox(
-                    //   width: 80,
-                    //   child: Text(
-                    //     names,
-                    //     overflow: TextOverflow.ellipsis,
-                    //     style: TextStyle(color: Colors.black),
-                    //     textAlign: TextAlign.center,
-                    //   ),
-                    // ),
                   ],
                 ),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    //Profile picture
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 96,
+                          height: 96,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: LinearGradient(
+                              begin: Alignment.bottomLeft,
+                              end: Alignment.topRight,
+                              colors: <Color>[
+                                Color(0xffFBAA47),
+                                Color(0xffD91A46),
+                                Color(0xffA60F93),
+                              ],
+                              tileMode: TileMode.mirror,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Container(
+                              width: 86,
+                              height: 86,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 3,
+                                ),
+                                shape: BoxShape.circle,
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(86 / 2),
+                                child: CachedNetworkImage(
+                                  imageUrl:
+                                      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                                  placeholder: (context, url) =>
+                                      CircularProgressIndicator(),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
 
-                //Number of posts, followers, following
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
+                    //Number of posts, followers, following
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text(
-                            '120',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 24),
+                          Column(
+                            children: [
+                              Text(
+                                '120',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 24),
+                              ),
+                              Text("Posts"),
+                            ],
                           ),
-                          Text("Posts"),
+                          Column(
+                            children: [
+                              Text(
+                                '340',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 24),
+                              ),
+                              Text("Followers"),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                '430',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 24),
+                              ),
+                              Text("Following"),
+                            ],
+                          ),
                         ],
                       ),
-                      Column(
-                        children: [
-                          Text(
-                            '340',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 24),
-                          ),
-                          Text("Followers"),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            '430',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 24),
-                          ),
-                          Text("Following"),
-                        ],
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -133,7 +155,7 @@ class UserAccount extends StatelessWidget {
             padding: const EdgeInsets.only(top: 30.0, left: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: const [
                 Text(
                   'Jackie Chan',
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -150,14 +172,14 @@ class UserAccount extends StatelessWidget {
               ],
             ),
           ),
-          
+
           SizedBox(height: 15),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Padding(
               padding: const EdgeInsets.all(2.0),
               child: Container(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Center(
                     child: Text(
                   "Edit Profile",
@@ -179,29 +201,38 @@ class UserAccount extends StatelessWidget {
               height: 100,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 10,
+                itemCount: "Mongolia".length,
                 itemBuilder: (context, index) {
-                  return BubbleStories(names: "Story 1");
-                },),
+                  return BubbleStories(names: "Mongolia"[index]);
+                },
+              ),
             ),
           ),
 
           //Tavbar Icons
-          const TabBar(
-            tabs: [
-              Tab(
-                icon: Icon(Icons.grid_3x3_outlined,
-                color: Colors.black,),
+          Container(
+            decoration: BoxDecoration(
+                border: Border(
+              top: BorderSide(
+                color: Color(0xffbcbcbe),
               ),
-              Tab(
-                icon: Icon(Icons.video_call,
-                color: Colors.black),
-              ),
-              Tab(
-                icon: Icon(Icons.person,
-                color: Colors.black),
-              ),
-            ],
+            )),
+            child: const TabBar(
+              tabs: [
+                Tab(
+                  icon: Icon(
+                    Icons.grid_3x3_outlined,
+                    color: Colors.black,
+                  ),
+                ),
+                Tab(
+                  icon: Icon(Icons.video_call, color: Colors.black),
+                ),
+                Tab(
+                  icon: Icon(Icons.person, color: Colors.black),
+                ),
+              ],
+            ),
           ),
 
           //Post, Video and Tag
